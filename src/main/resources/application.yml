@@ -1,0 +1,38 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/account?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    password: '1234'
+  jpa:
+    properties:
+      hibernate:
+        format_sql: 'true'
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: create-drop
+#  kafka:
+#    consumer:
+#      bootstrap-servers: localhost:9092
+#      group-id: group_id_account
+#      auto-offset-reset: earliest
+#      #key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      #value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#    producer:
+#      bootstrap-servers: localhost:9092
+#      #key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      #value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
